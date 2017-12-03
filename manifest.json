@@ -23,18 +23,18 @@
   },
   "manifest_version": 2,
   "name": "ChromePlay",
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html"
+  },
   "page_action": {
     "default_icon": {
       "19": "icon.png",
       "38": "icon.png"
     },
-    "default_title": "AirPlay it!",
-    "default_hostname": "apple-tv.local"
+    "default_title": "AirPlay it!"
   },
   "permissions": [
     "activeTab",
-    "background",
     "contextMenus",
     "https://www.youtube.com/",
     "http://*/*",

@@ -2,7 +2,7 @@ const youtube = require("./youtube");
 
 const manifest = chrome.runtime.getManifest();
 const storage = {
-  hostname: localStorage.hostname || manifest.page_action.default_hostname,
+  hostname: localStorage.hostname || "apple-tv.local",
   position: localStorage["play-position"] || "current",
 };
 
