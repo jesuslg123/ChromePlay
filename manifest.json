@@ -5,7 +5,7 @@
     ]
   },
   "content_scripts": [{
-    "all_frames": false,
+    "all_frames": true,
     "js": [
       "build/content.bundle.js"
     ],
@@ -42,5 +42,5 @@
     "webRequest",
     "webRequestBlocking"
   ],
-  "version": "1.4.1"
+  "version": "1.4.2"
 }

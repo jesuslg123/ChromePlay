@@ -143,7 +143,7 @@ function onRequest(request, sender, sendResponse) {
 }
 
 // Listen for the content script to send a message to the background page.
-chrome.extension.onRequest.addListener(onRequest);
+browser.runtime.onMessage.addListener(onRequest);
 
 chrome.pageAction.onClicked.addListener(function (tab) {
   console.log('Button clicked.');
