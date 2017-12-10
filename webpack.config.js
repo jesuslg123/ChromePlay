@@ -4,7 +4,7 @@ module.exports = {
     content: "./js/content",
   },
   output: {
-    path: "build",
+    path: __dirname + "/build",
     filename: "[name].bundle.js",
   },
   devtool: "source-map",
