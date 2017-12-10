@@ -69,7 +69,7 @@
 
 const youtube = __webpack_require__(1);
 
-const manifest = chrome.runtime.getManifest();
+const manifest = browser.runtime.getManifest();
 const storage = {
   hostname: localStorage.hostname || "apple-tv.local",
   position: localStorage["play-position"] || "current",
@@ -78,7 +78,7 @@ const storage = {
 // let's make it think we're on Safari so can support pretty much all YouTube videos
 // including VEVO
 // because ytplayer is getting additional hlsvp property on Safari
-chrome.webRequest.onBeforeSendHeaders.addListener(
+browser.webRequest.onBeforeSendHeaders.addListener(
     function(info) {
         // Replace the User-Agent header
         var headers = info.requestHeaders;
@@ -99,8 +99,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
     ["blocking", "requestHeaders"]
 );
 
-chrome.contextMenus.removeAll();
-chrome.contextMenus.create({
+browser.contextMenus.removeAll();
+browser.contextMenus.create({
   type: "normal",
   title: "AirPlay it!",
   contexts: ["link", "video"],
@@ -206,26 +206,25 @@ function startPlaying(videoUrl, contentType, position) {
 function onRequest(request, sender, sendResponse) {
   // Show the page action for the tab that the sender (content script)
   // was on.
-  chrome.pageAction.show(sender.tab.id);
+  browser.pageAction.show(sender.tab.id);
   // Return nothing to let the connection be cleaned up.
   sendResponse({});
 }
 
 // Listen for the content script to send a message to the background page.
 browser.runtime.onMessage.addListener(onRequest);
-//chrome.extension.onRequest.addListener(onRequest);
 
-chrome.pageAction.onClicked.addListener(function (tab) {
+browser.pageAction.onClicked.addListener(function (tab) {
   console.log('Button clicked.');
   var video;
-  chrome.tabs.sendMessage(tab.id, {
+  browser.tabs.sendMessage(tab.id, {
     action: "Html5Video"
   }, function (response) {
     console.log('Response on HTML5 compatibility received');
     video = response.Html5Video;
     if (/^http(s?):\/\/(www\.)?youtube/.test(tab.url) || typeof video === 'undefined') {
       console.log('Recognized page as YouTube video');
-      chrome.tabs.sendMessage(tab.id, {
+      browser.tabs.sendMessage(tab.id, {
         action: "getYtPlayer"
       }, function (response_yt_player) {
         startPlayingYouTube(tab.url, "0", response_yt_player); // YouTube url and player object
@@ -238,7 +237,7 @@ chrome.pageAction.onClicked.addListener(function (tab) {
 });
 
 // some websites use HTML5 video if viewed on iPad
-chrome.webRequest.onBeforeSendHeaders.addListener(
+browser.webRequest.onBeforeSendHeaders.addListener(
   function (info) {
     // Replace the User-Agent header
     var headers = info.requestHeaders;

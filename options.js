@@ -6,7 +6,7 @@ function saveOptions(event) {
   localStorage["play-position"] = document.getElementById("play-position-current")
     .checked ? "current" : "0";
 
-  chrome.extension.getBackgroundPage().window.location.reload();
+  browser.extension.getBackgroundPage().window.location.reload();
 
   // Show status to let user know options were saved.
   const status = document.getElementById("status");

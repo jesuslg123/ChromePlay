@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 	
-		chrome.tabs.getSelected(null, function(tab) {
-  		  var bgPage = chrome.extension.getBackgroundPage();
+	browser.tabs.getSelected(null, function(tab) {
+  		  var bgPage = browser.extension.getBackgroundPage();
 		  
 	      console.log("Starting AirPlaying...")
   		  bgPage.startPlaying(tab.url)

@@ -71,11 +71,9 @@
 window.addEventListener("load", tryToEnableChromePlay, false);
 window.addEventListener("DOMActivate", tryToEnableChromePlay, false);
 
-$(document).bind('DOMNodeInserted', function(e) {
-    if(ready === true && allow === true) {
-		tryToEnableChromePlay();   
-    }
-});
+// $(document).bind('DOMNodeInserted', function(e) {
+// 		tryToEnableChromePlay();   
+// });
 
 /**
  * Tries to find video src in given document.
