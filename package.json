@@ -1,6 +1,6 @@
 {
   "name": "chromeplay",
-  "version": "1.4.1",
+  "version": "1.4.5",
   "description": "Send YouTube & HTML5 videos to AppleTV via Airplay",
   "main": "main.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://czekaj@github.com/czekaj/ChromePlay.git"
+    "url": "git+https://jesuslg123@github.com/jesuslg123/ChromePlay.git"
   },
   "keywords": [
     "airplay",
@@ -19,12 +19,12 @@
   "dependencies": {
     "bootswatch": "^3.3.6"
   },
-  "author": "Lucas Czekaj",
+  "author": "jesuslg123",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/czekaj/ChromePlay/issues"
+    "url": "https://github.com/jesuslg123/ChromePlay/issues"
   },
-  "homepage": "https://github.com/czekaj/ChromePlay#readme",
+  "homepage": "https://github.com/jesuslg123/ChromePlay#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "dirty-chai": "^1.2.2",
